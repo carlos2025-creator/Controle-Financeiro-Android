@@ -1,4 +1,3 @@
-// 21º arquivo criado
 package com.example.controlefinanceiro.ui.theme
 
 import androidx.compose.material3.Typography

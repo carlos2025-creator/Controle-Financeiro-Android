@@ -1,4 +1,3 @@
-// 7º arquivo criado
 package com.example.controlefinanceiro
 
 import androidx.test.platform.app.InstrumentationRegistry

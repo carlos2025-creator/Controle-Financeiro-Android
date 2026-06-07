@@ -1,4 +1,3 @@
-# 48º arquivo criado
 #!/bin/sh
 
 #

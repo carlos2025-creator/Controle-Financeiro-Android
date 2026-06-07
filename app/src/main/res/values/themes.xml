@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 39º arquivo criado -->
 <resources>
 
     <style name="Theme.ControleFinanceiro" parent="android:Theme.Material.Light.NoActionBar" />

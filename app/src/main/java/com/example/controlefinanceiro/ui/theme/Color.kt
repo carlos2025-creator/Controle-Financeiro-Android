@@ -1,4 +1,3 @@
-// 19º arquivo criado
 package com.example.controlefinanceiro.ui.theme
 
 import androidx.compose.ui.graphics.Color

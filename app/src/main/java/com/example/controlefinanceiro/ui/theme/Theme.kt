@@ -1,4 +1,3 @@
-// 20º arquivo criado
 package com.example.controlefinanceiro.ui.theme
 
 import android.app.Activity

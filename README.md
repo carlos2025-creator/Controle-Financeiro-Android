@@ -1,4 +1,3 @@
-<!-- 3º arquivo criado -->
 # Controle Financeiro
 
 **Curso Capacita iRede - Android**  

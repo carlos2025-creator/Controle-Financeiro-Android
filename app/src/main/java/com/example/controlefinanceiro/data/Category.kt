@@ -1,4 +1,3 @@
-// 11º arquivo criado
 package com.example.controlefinanceiro.data
 
 import androidx.compose.material.icons.Icons
