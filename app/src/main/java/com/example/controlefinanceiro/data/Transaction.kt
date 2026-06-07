@@ -1,3 +1,4 @@
+// 13º arquivo criado
 package com.example.controlefinanceiro.data
 
 import androidx.room.Entity

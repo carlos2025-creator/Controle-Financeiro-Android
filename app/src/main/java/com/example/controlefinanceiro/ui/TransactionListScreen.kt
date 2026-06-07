@@ -1,3 +1,4 @@
+// 17º arquivo criado
 package com.example.controlefinanceiro.ui
 
 import androidx.compose.foundation.BorderStroke
@@ -326,7 +327,7 @@ fun EditTransactionDialog(
                         FilterChip(
                             selected = category == cat,
                             onClick = { category = cat },
-                            label = { Text(cat.displayName, fontSize = 10.sp) }
+                            label = { Text(cat.displayName, fontSize = 10.sp) } }
                         )
                     }
                 }
