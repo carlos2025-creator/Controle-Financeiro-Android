@@ -18,7 +18,7 @@ abstract class AppDatabase : RoomDatabase() {
         fun getDatabase(context: Context): AppDatabase {
             return Instance ?: synchronized(this) {
                 Room.databaseBuilder(context, AppDatabase::class.java, "transaction_database")
-                    .fallbackToDestructiveMigration() // Simplifica para desenvolvimento, limpa o banco se mudar a estrutura
+                    .fallbackToDestructiveMigration()
                     .build()
                     .also { Instance = it }
             }

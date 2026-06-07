@@ -14,8 +14,8 @@ data class Transaction(
 )
 
 enum class TransactionType {
-    INCOME,         // Receita
-    EXPENSE,        // Despesa
-    INVESTMENT,     // Investimento
-    WITHDRAWAL      // Resgate
+    INCOME,
+    EXPENSE,
+    INVESTMENT,
+    WITHDRAWAL
 }

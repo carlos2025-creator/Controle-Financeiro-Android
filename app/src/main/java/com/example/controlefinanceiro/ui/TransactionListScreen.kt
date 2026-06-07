@@ -37,7 +37,6 @@ fun TransactionListScreen(
     val totalInvested by viewModel.totalInvested.collectAsState()
     val selectedMonth by viewModel.selectedMonth.collectAsState()
     val selectedYear by viewModel.selectedYear.collectAsState()
-    val expensesByCategory by viewModel.expensesByCategory.collectAsState()
     
     var editingTransaction by remember { mutableStateOf<Transaction?>(null) }
 
@@ -89,10 +88,6 @@ fun TransactionListScreen(
                 totalInvested = totalInvested,
                 onInvestClick = { viewModel.investSurplus() }
             )
-
-            if (expensesByCategory.isNotEmpty()) {
-                CategorySummaryCard(expensesByCategory)
-            }
 
             LazyColumn(
                 modifier = Modifier.fillMaxSize(),
@@ -175,50 +170,6 @@ fun TransactionListScreen(
                 editingTransaction = null
             }
         )
-    }
-}
-
-@Composable
-fun CategorySummaryCard(expensesByCategory: Map<Category, Double>) {
-    val totalExpense = expensesByCategory.values.sum()
-    Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 8.dp),
-        border = BorderStroke(1.dp, Color.LightGray),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
-    ) {
-        Column(modifier = Modifier.padding(12.dp)) {
-            Text(
-                "GASTOS POR CATEGORIA", 
-                style = MaterialTheme.typography.labelSmall,
-                fontWeight = FontWeight.Bold,
-                color = Color.Gray
-            )
-            Spacer(modifier = Modifier.height(8.dp))
-            expensesByCategory.entries.sortedByDescending { it.value }.take(3).forEach { (category, amount) ->
-                val percentage = (amount / totalExpense).toFloat()
-                Column(modifier = Modifier.padding(vertical = 4.dp)) {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween
-                    ) {
-                        Text(text = category.displayName, fontSize = 12.sp, fontWeight = FontWeight.Medium)
-                        Text(text = "R$ ${String.format("%.2f", amount)}", fontSize = 12.sp, fontWeight = FontWeight.Bold)
-                    }
-                    LinearProgressIndicator(
-                        progress = { percentage },
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(6.dp)
-                            .padding(top = 2.dp),
-                        color = Color.Red,
-                        trackColor = Color.LightGray,
-                        strokeCap = androidx.compose.ui.graphics.StrokeCap.Round
-                    )
-                }
-            }
-        }
     }
 }
 

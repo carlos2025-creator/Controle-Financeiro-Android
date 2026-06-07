@@ -69,16 +69,6 @@ class TransactionViewModel(application: Application) : AndroidViewModel(applicat
         initialValue = 0.0
     )
 
-    val expensesByCategory: StateFlow<Map<Category, Double>> = filteredTransactions.map { list ->
-        list.filter { it.type == TransactionType.EXPENSE }
-            .groupBy { it.category }
-            .mapValues { entry -> entry.value.sumOf { it.amount } }
-    }.stateIn(
-        scope = viewModelScope,
-        started = SharingStarted.WhileSubscribed(5000L),
-        initialValue = emptyMap()
-    )
-
     fun changeMonth(month: Int) {
         _selectedMonth.value = month
     }
@@ -107,11 +97,9 @@ class TransactionViewModel(application: Application) : AndroidViewModel(applicat
 
     fun addTransaction(title: String, amount: Double, type: TransactionType, category: Category = Category.OTHERS) {
         viewModelScope.launch {
-            // Criar a transação baseada no mês/ano selecionado no dashboard
             val calendar = Calendar.getInstance().apply {
                 set(Calendar.YEAR, _selectedYear.value)
                 set(Calendar.MONTH, _selectedMonth.value)
-                // Se for o mês atual, mantém o dia de hoje. Se for outro mês, coloca dia 1.
                 val today = Calendar.getInstance()
                 if (_selectedYear.value == today.get(Calendar.YEAR) && _selectedMonth.value == today.get(Calendar.MONTH)) {
                     set(Calendar.DAY_OF_MONTH, today.get(Calendar.DAY_OF_MONTH))

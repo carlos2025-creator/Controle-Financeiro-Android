@@ -6,7 +6,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 
 enum class Category(val displayName: String, val icon: ImageVector) {
     FOOD("Alimentação", Icons.Default.ShoppingCart),
-    TRANSPORT("Transporte", Icons.Default.Build), // Usando ícones padrão do Material
+    TRANSPORT("Transporte", Icons.Default.Build),
     LIVING("Moradia", Icons.Default.Home),
     HEALTH("Saúde", Icons.Default.Favorite),
     ENTERTAINMENT("Lazer", Icons.Default.Star),

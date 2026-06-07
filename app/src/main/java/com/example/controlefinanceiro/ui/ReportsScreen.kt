@@ -29,7 +29,6 @@ fun ReportsScreen(
 ) {
     val allTransactions by viewModel.allTransactions.collectAsState()
 
-    // Agrupar transações por mês e ano
     val groupedReports = allTransactions.groupBy {
         val cal = Calendar.getInstance().apply { timeInMillis = it.date }
         "${cal.get(Calendar.YEAR)}-${cal.get(Calendar.MONTH)}"
